@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import SearchBar from './SearchBar.js';
+import SearchResults from './SearchResults.js';
+import Track,{Song_list} from './Track.js';
+import Playlist from './Playlist.js';
+
 
 function App() {
+  //name of the song to be displayed
+  const [artist,setArtist] = useState("unknow");
+  const [song,setSong] = useState("unknow");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="App">  
+      <SearchBar artist={artist} setArtist={setArtist}/> 
+      <Track /> 
+      <SearchResults artist={artist} song={song} /> 
+      
+
     </div>
   );
 }
